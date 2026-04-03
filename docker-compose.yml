@@ -11,30 +11,30 @@ services:
       # Docker socket for label filtering (required if using DOCKER_FILTER_LABEL)
       - /var/run/docker.sock:/var/run/docker.sock:ro
       # Persistent storage for DNS entries JSON file
-      - ./data:/data
+      # - ./data:/data
     environment:
       # === Required ===
-      - TRAEFIK_API_URL=http://traefik:8080/api/
-      - TRAEFIK_IP=10.0.10.50
-      - UNIFI_URL=https://192.168.1.1/
+      #- TRAEFIK_API_URL=http://traefik:8080/api/
+      #- TRAEFIK_IP=10.0.10.50
+      #- UNIFI_URL=https://192.168.1.1/
       # Authentication: Use API key (recommended) OR username/password
-      - UNIFI_API_KEY=${UNIFI_API_KEY}
+      #- UNIFI_API_KEY=${UNIFI_API_KEY}
       # - UNIFI_USERNAME=${UNIFI_USERNAME}
       # - UNIFI_PASSWORD=${UNIFI_PASSWORD}
 
       # === Optional ===
-      - LOG_LEVEL=INFO
-      - DNS_RECORD_TYPE=A
-      - IGNORE_SSL_WARNINGS=true
+      #- LOG_LEVEL=INFO
+      #- DNS_RECORD_TYPE=A
+      #- IGNORE_SSL_WARNINGS=true
 
       # === Docker Label Filtering ===
       # Only sync containers that have this label set to this value
-      - DOCKER_FILTER_LABEL=traefik.unifi-dns
-      - DOCKER_FILTER_VALUE=true
+      #- DOCKER_FILTER_LABEL=traefik.unifi-dns
+      #- DOCKER_FILTER_VALUE=true
 
       # === DNS Output File ===
       # Write synced entries to JSON file for auditing
-      - DNS_OUTPUT_FILE=/data/dns-entries.json
+      #- DNS_OUTPUT_FILE=/data/dns-entries.json
     networks:
       - traefik
 
