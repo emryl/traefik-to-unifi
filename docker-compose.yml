@@ -14,27 +14,27 @@ services:
       # - ./data:/data
     environment:
       # === Required ===
-      #- TRAEFIK_API_URL=http://traefik:8080/api/
-      #- TRAEFIK_IP=10.0.10.50
-      #- UNIFI_URL=https://192.168.1.1/
+      - TRAEFIK_API_URL=${TRAEFIK_API_URL}
+      - TRAEFIK_IP=${TRAEFIK_IP}
+      - UNIFI_URL=${UNIFI_URL}
       # Authentication: Use API key (recommended) OR username/password
-      #- UNIFI_API_KEY=${UNIFI_API_KEY}
+      - UNIFI_API_KEY=${UNIFI_API_KEY}
       # - UNIFI_USERNAME=${UNIFI_USERNAME}
       # - UNIFI_PASSWORD=${UNIFI_PASSWORD}
 
       # === Optional ===
-      #- LOG_LEVEL=INFO
-      #- DNS_RECORD_TYPE=A
-      #- IGNORE_SSL_WARNINGS=true
+      - LOG_LEVEL=${LOG_LEVEL}
+      - DNS_RECORD_TYPE=${DNS_RECORD_TYPE}
+      - IGNORE_SSL_WARNINGS=${IGNORE_SSL_WARNINGS}
 
       # === Docker Label Filtering ===
       # Only sync containers that have this label set to this value
-      #- DOCKER_FILTER_LABEL=traefik.unifi-dns
-      #- DOCKER_FILTER_VALUE=true
+      - DOCKER_FILTER_LABEL=${DOCKER_FILTER_LABEL}
+      - DOCKER_FILTER_VALUE=${DOCKER_FILTER_VALUE}
 
       # === DNS Output File ===
       # Write synced entries to JSON file for auditing
-      #- DNS_OUTPUT_FILE=/data/dns-entries.json
+      #- DNS_OUTPUT_FILE=${DNS_OUTPUT_FILE}
     networks:
       - traefik
 
